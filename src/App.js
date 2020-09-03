@@ -1,26 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Axios from 'axios';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const onClick = () => {
+		Axios.get('https://jsonplaceholder.typicode.com/todos/').then(res =>
+			console.log(res.data)
+		);
+	};
+
+	return (
+		<div className='app'>
+			<h1>App</h1>
+			<textarea name='test' id='test' defaultValue='test'></textarea>
+			<br />
+			<button onClick={onClick}>Send</button>
+		</div>
+	);
 }
 
 export default App;
