@@ -33,6 +33,9 @@ header p {
 	min-width: 400px;
 	/* background-color: rgb(235, 216, 192); */
 }
+.inputs * {
+	color: teal;
+}
 .logs {
 	width: 200px;
 	min-width: 200px;
@@ -56,6 +59,7 @@ header p {
 	flex: 1 1 auto;
 	height: auto;
 	margin: 0 5px;
+	padding: 10px;
 	resize: none;
 }
 
@@ -63,7 +67,43 @@ header p {
 	width: 90px;
 	display: inline-block;
 	cursor: pointer;
+	padding-left: 10px;
 }
 .send {
 	cursor: pointer;
+	padding: 10px 15px;
+}
+.send:disabled {
+	cursor: not-allowed;
+}
+.send:hover {
+	border-color: var(--light-blue-500);
+}
+
+.input_element {
+	margin: 10px 0 0 0;
+	display: flex;
+	flex-direction: column;
+}
+.input_element label {
+	text-align: start;
+	padding: 15px 0 15px 15px;
+	background-color: var(--light-blue-50);
+	border: 1px solid teal;
+	border-bottom: none;
+	border-radius: 5px 5px 0 0;
+}
+.input_element textarea {
+	resize: none;
+	padding: 15px;
+	border: 1px solid teal;
+	border-radius: 0 0 5px 5px;
+}
+.input_element textarea:focus {
+	background-color: var(--light-blue-50);
+}
+
+h2 {
+	text-align: start;
+	margin-top: 0;
 }

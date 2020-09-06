@@ -1,9 +1,6 @@
-// import Axios from 'axios';
-import React, { useState, useEffect } from 'react';
-// import InputLabel from '@material-ui/core/InputLabel';
-// import MenuItem from '@material-ui/core/MenuItem';
-// import FormControl from '@material-ui/core/FormControl';
-// import Select from '@material-ui/core/Select';
+import Axios from 'axios';
+import React, { useReducer, useEffect } from 'react';
+
 import './App.css';
 
 const METHODS = [
@@ -18,32 +15,73 @@ const METHODS = [
 	'TRACE',
 ];
 
+const initialRequestState = {};
+const requestReducer = (state, action) => {
+	switch (action.type) {
+		case 'URL_CHANGE':
+			return {
+				...state,
+				url: action.url,
+			};
+		case 'METHOD_CHANGE':
+			return {
+				...state,
+				method: action.method,
+			};
+		case 'HEADERS_CHANGE':
+			return {
+				...state,
+				headers: action.headers,
+			};
+		case 'BODY_CHANGE':
+			return {
+				...state,
+				data: action.body,
+			};
+
+		default:
+			throw new Error();
+	}
+};
+
 function App() {
-	// const [res, setRes] = useState();
-	// const [err, setErr] = useState();
-	// useEffect(() => {
-	// 	console.log(res);
-	// }, [res]);
-	// const onClick = async () => {
-	// 	console.clear();
-	// 	try {
-	// 		const response = await Axios({
-	// 			url: 'todos/',
-	// 			data: 'yeah!',
-	// 			baseURL: 'https://jsonplaceholder.typicode.com',
-	// 			// validateStatus: status =>true,
-	// 		});
-	// 		setRes(response);
-	// 	} catch (error) {
-	// 		setErr(error);
-	// 		console.log({ err });
-	// 	}
-	// };
+	const [requestState, dispatch] = useReducer(
+		requestReducer,
+		initialRequestState
+	);
+
+	useEffect(() => {
+		console.log(requestState);
+	}, [requestState]);
+
+	const onUrlChange = event => {
+		dispatch({ type: 'URL_CHANGE', url: event.target.value });
+	};
+
+	const onMethodChange = event => {
+		dispatch({ type: 'METHOD_CHANGE', method: event.target.value });
+	};
+
+	const onHeadersChange = event => {
+		dispatch({ type: 'HEADERS_CHANGE', headers: event.target.value });
+	};
+
+	const onBodyChange = event => {
+		dispatch({ type: 'BODY_CHANGE', body: event.target.value });
+	};
+
+	const sendRequest = () => {
+		if (requestState.url) {
+			Axios(requestState)
+				.then(res => console.log(res))
+				.catch(err => console.error(err));
+		}
+	};
 
 	return (
 		<main className='app'>
 			<header>
-				<h1>Post Women</h1>
+				<h1>PostWomen</h1>
 				<p>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate,
 					repudiandae eius distinctio laboriosam enim quo animi eum recusandae
@@ -54,12 +92,14 @@ function App() {
 			<article className='row'>
 				<div className='inputs'>
 					<section className='request'>
+						<h2>Request</h2>
 						<div className='intro'>
 							<input
 								name='method'
 								list='methods'
 								className='methods'
-								defaultValue={METHODS[0]}
+								placeholder='METHOD'
+								onChange={onMethodChange}
 							/>
 							<datalist id='methods'>
 								{METHODS.map(method => {
@@ -70,11 +110,36 @@ function App() {
 									);
 								})}
 							</datalist>
-							<textarea name='url' id='url' rows='1' className='url' />
-							<button className='send'>Send</button>
+							<input className='url' placeholder='URL' onChange={onUrlChange} />
+							<button
+								className='send'
+								onClick={sendRequest}
+								disabled={!requestState.url}>
+								Send
+							</button>
+						</div>
+						<div className='input_element'>
+							<label>Headers</label>
+							<textarea
+								placeholder='Type the headers of the request here'
+								onChange={onHeadersChange}
+							/>
+						</div>
+						<div className='input_element'>
+							<label>Body</label>
+							<textarea
+								placeholder='Type the body of the request here'
+								onChange={onBodyChange}
+							/>
+						</div>
+						<div className='input_element'>
+							<label>Other Options</label>
+							<textarea placeholder='You can pass a JSON object containing other parameters that you want to add to the request' />
 						</div>
 					</section>
-					<section className='response'>res</section>
+					<section className='response'>
+						<h2>Response</h2>
+					</section>
 				</div>
 				<article className='logs'>logs</article>
 			</article>
