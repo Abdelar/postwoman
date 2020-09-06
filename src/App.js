@@ -141,7 +141,9 @@ function App() {
 						<h2>Response</h2>
 					</section>
 				</div>
-				<article className='logs'>logs</article>
+				<article className='logs'>
+					<h2>Logs</h2>
+				</article>
 			</article>
 			<footer>elaroussi.me</footer>
 		</main>
