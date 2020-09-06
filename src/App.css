@@ -1,6 +1,9 @@
 .app {
-  margin: 0 10vw;
-  text-align: center;
+	margin: 0 10vw;
+	text-align: center;
+}
+.app * {
+	outline: none;
 }
 @media screen and (max-width: 992px) {
 	.app {
@@ -13,7 +16,54 @@
 	}
 }
 
-textarea {
-	height: 20px;
-	width: 80%;
+header h1 {
+	text-transform: uppercase;
+}
+header p {
+	font-family: 'Syne', sans-serif;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.inputs {
+	flex: 5;
+	min-width: 400px;
+	/* background-color: rgb(235, 216, 192); */
+}
+.logs {
+	width: 200px;
+	min-width: 200px;
+	flex: 1 1 auto;
+	/* background-color: burlywood; */
+}
+.intro {
+	display: flex;
+}
+.intro > * {
+	border-radius: 5px;
+	border: 1px solid teal;
+	background-color: white;
+}
+.intro > *:focus {
+	border-radius: 5px;
+	border: 1px solid var(--light-blue-500);
+	background-color: var(--light-blue-50);
+}
+.url {
+	flex: 1 1 auto;
+	height: auto;
+	margin: 0 5px;
+	resize: none;
+}
+
+.methods {
+	width: 90px;
+	display: inline-block;
+	cursor: pointer;
+}
+.send {
+	cursor: pointer;
 }
