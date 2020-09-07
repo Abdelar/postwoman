@@ -191,6 +191,7 @@ function App() {
 							<textarea
 								placeholder='Type the headers of the request here'
 								onChange={onHeadersChange}
+								rows={requestState.headers ? 10 : 1}
 							/>
 						</div>
 						<div className='input_element'>
@@ -198,6 +199,7 @@ function App() {
 							<textarea
 								placeholder='Type the body of the request here'
 								onChange={onBodyChange}
+								rows={requestState.data ? 10 : 1}
 							/>
 						</div>
 						<div className='input_element'>
@@ -205,6 +207,7 @@ function App() {
 							<textarea
 								onChange={onOptionsChange}
 								placeholder='You can pass a JSON object containing other parameters that you want to add to the request'
+								rows={requestState.options ? 10 : 1}
 							/>
 						</div>
 					</section>
@@ -222,6 +225,7 @@ function App() {
 								}
 								placeholder=''
 								readOnly
+								rows={1}
 							/>
 						</div>
 						<div className='input_element'>
@@ -235,6 +239,7 @@ function App() {
 										: ''
 								}
 								placeholder=''
+								rows={1}
 								readOnly
 							/>
 						</div>
@@ -248,6 +253,7 @@ function App() {
 										? JSON.stringify(err.data, undefined, 4)
 										: ''
 								}
+								rows={(res && res.data) || (err && err.data) ? 10 : 1}
 								placeholder=''
 								readOnly
 							/>
@@ -262,6 +268,7 @@ function App() {
 										? JSON.stringify(err.headers, undefined, 4)
 										: ''
 								}
+								rows={(res && res.headers) || (err && err.headers) ? 10 : 1}
 								placeholder=''
 								readOnly
 							/>
@@ -276,6 +283,7 @@ function App() {
 										? JSON.stringify(err.config, undefined, 4)
 										: ''
 								}
+								rows={(res && res.config) || (err && err.config) ? 10 : 1}
 								placeholder=''
 								readOnly
 							/>
