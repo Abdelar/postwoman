@@ -15,7 +15,16 @@ const METHODS = [
 	'TRACE',
 ];
 
-const initialRequestState = {};
+const initialRequestState = {
+	transformRequest: (data, headers) => {
+		try {
+			const transformedData = JSON.parse(data);
+			return transformedData;
+		} catch {
+			return data;
+		}
+	},
+};
 const requestReducer = (state, action) => {
 	switch (action.type) {
 		case 'URL_CHANGE':
@@ -56,7 +65,7 @@ function App() {
 	);
 
 	useEffect(() => {
-		console.log(requestState);
+		// console.log(requestState);
 	}, [requestState]);
 
 	const onUrlChange = event => {
@@ -81,7 +90,18 @@ function App() {
 
 	const sendRequest = () => {
 		if (requestState.url) {
-			Axios(requestState)
+			let config = requestState;
+			if (requestState.headers) {
+				try {
+					config.headers = JSON.parse(config.headers);
+				} catch {}
+			}
+			if (requestState.options) {
+				try {
+					config = { ...config, ...JSON.parse(config.options) };
+				} catch {}
+			}
+			Axios(config)
 				.then(res => console.log(res))
 				.catch(err => console.error(err));
 		}
