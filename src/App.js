@@ -38,6 +38,11 @@ const requestReducer = (state, action) => {
 				...state,
 				data: action.body,
 			};
+		case 'OPTIONS_CHANGE':
+			return {
+				...state,
+				options: action.options,
+			};
 
 		default:
 			throw new Error();
@@ -68,6 +73,10 @@ function App() {
 
 	const onBodyChange = event => {
 		dispatch({ type: 'BODY_CHANGE', body: event.target.value });
+	};
+
+	const onOptionsChange = event => {
+		dispatch({ type: 'OPTIONS_CHANGE', options: event.target.value });
 	};
 
 	const sendRequest = () => {
@@ -134,7 +143,10 @@ function App() {
 						</div>
 						<div className='input_element'>
 							<label>Other Options</label>
-							<textarea placeholder='You can pass a JSON object containing other parameters that you want to add to the request' />
+							<textarea
+								onChange={onOptionsChange}
+								placeholder='You can pass a JSON object containing other parameters that you want to add to the request'
+							/>
 						</div>
 					</section>
 					<section className='response'>
