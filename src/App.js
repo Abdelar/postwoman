@@ -243,9 +243,9 @@ function App() {
 							<textarea
 								value={
 									res && res.data
-										? JSON.stringify(res.data)
+										? JSON.stringify(res.data, undefined, 4)
 										: err && err.data
-										? JSON.stringify(err.data)
+										? JSON.stringify(err.data, undefined, 4)
 										: ''
 								}
 								placeholder=''
@@ -257,9 +257,9 @@ function App() {
 							<textarea
 								value={
 									res && res.headers
-										? JSON.stringify(res.headers)
+										? JSON.stringify(res.headers, undefined, 4)
 										: err && err.headers
-										? JSON.stringify(err.headers)
+										? JSON.stringify(err.headers, undefined, 4)
 										: ''
 								}
 								placeholder=''
@@ -271,9 +271,9 @@ function App() {
 							<textarea
 								value={
 									res && res.config
-										? JSON.stringify(res.config)
+										? JSON.stringify(res.config, undefined, 4)
 										: err && err.config
-										? JSON.stringify(err.config)
+										? JSON.stringify(err.config, undefined, 4)
 										: ''
 								}
 								placeholder=''
