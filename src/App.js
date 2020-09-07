@@ -25,6 +25,19 @@ const initialRequestState = {
 		}
 	},
 };
+const initialResponseState = {};
+
+const responseReducer = (state, action) => {
+	switch (action.type) {
+		case 'SET_RESPONSE':
+			return { ...state, response: action.response, error: null };
+		case 'SET_ERROR':
+			return { ...state, error: action.error, response: null };
+		default:
+			throw new Error('Invalid Request Action');
+	}
+};
+
 const requestReducer = (state, action) => {
 	switch (action.type) {
 		case 'URL_CHANGE':
@@ -54,7 +67,7 @@ const requestReducer = (state, action) => {
 			};
 
 		default:
-			throw new Error();
+			throw new Error('Invalid Response Action');
 	}
 };
 
@@ -64,9 +77,17 @@ function App() {
 		initialRequestState
 	);
 
+	const [responseState, dispatchResponse] = useReducer(
+		responseReducer,
+		initialResponseState
+	);
+
 	useEffect(() => {
 		// console.log(requestState);
 	}, [requestState]);
+	useEffect(() => {
+		console.log(responseState);
+	}, [responseState]);
 
 	const onUrlChange = event => {
 		dispatch({ type: 'URL_CHANGE', url: event.target.value });
@@ -88,9 +109,14 @@ function App() {
 		dispatch({ type: 'OPTIONS_CHANGE', options: event.target.value });
 	};
 
-	const sendRequest = () => {
+	const sendRequest = async () => {
 		if (requestState.url) {
 			let config = requestState;
+			config.url =
+				config.url.toLowerCase().startsWith('http://') ||
+				config.url.toLowerCase().startsWith('https://')
+					? config.url
+					: 'http://' + config.url;
 			if (requestState.headers) {
 				try {
 					config.headers = JSON.parse(config.headers);
@@ -101,11 +127,24 @@ function App() {
 					config = { ...config, ...JSON.parse(config.options) };
 				} catch {}
 			}
-			Axios(config)
-				.then(res => console.log(res))
-				.catch(err => console.error(err));
+			try {
+				const res = await Axios(config);
+				dispatchResponse({ type: 'SET_RESPONSE', response: res });
+
+				console.log(res);
+			} catch (err) {
+				dispatchResponse({
+					type: 'SET_ERROR',
+					error: err.response || err.request || err,
+				});
+				console.log(err);
+				console.log({ error: err.response || err.request || err });
+			}
 		}
 	};
+
+	const res = responseState.response;
+	const err = responseState.error;
 
 	return (
 		<main className='app'>
@@ -171,6 +210,76 @@ function App() {
 					</section>
 					<section className='response'>
 						<h2>Response</h2>
+						<div className='input_element'>
+							<label>Status</label>
+							<textarea
+								value={
+									res && res.status
+										? res.status
+										: err && err.status
+										? err.status
+										: ''
+								}
+								placeholder=''
+								readOnly
+							/>
+						</div>
+						<div className='input_element'>
+							<label>Status Text</label>
+							<textarea
+								value={
+									res && res.statusText
+										? res.statusText
+										: err && err.statusText
+										? err.statusText
+										: ''
+								}
+								placeholder=''
+								readOnly
+							/>
+						</div>
+						<div className='input_element'>
+							<label>Data</label>
+							<textarea
+								value={
+									res && res.data
+										? JSON.stringify(res.data)
+										: err && err.data
+										? JSON.stringify(err.data)
+										: ''
+								}
+								placeholder=''
+								readOnly
+							/>
+						</div>
+						<div className='input_element'>
+							<label>Headers</label>
+							<textarea
+								value={
+									res && res.headers
+										? JSON.stringify(res.headers)
+										: err && err.headers
+										? JSON.stringify(err.headers)
+										: ''
+								}
+								placeholder=''
+								readOnly
+							/>
+						</div>
+						<div className='input_element'>
+							<label>Config</label>
+							<textarea
+								value={
+									res && res.config
+										? JSON.stringify(res.config)
+										: err && err.config
+										? JSON.stringify(err.config)
+										: ''
+								}
+								placeholder=''
+								readOnly
+							/>
+						</div>
 					</section>
 				</div>
 				<article className='logs'>

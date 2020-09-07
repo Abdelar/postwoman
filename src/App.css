@@ -102,7 +102,6 @@ header p {
 .input_element textarea:focus {
 	background-color: var(--light-blue-50);
 }
-
-h2 {
-	margin-top: 0;
+footer {
+	margin: 20px 0;
 }
