@@ -39,3 +39,20 @@ text {
 ::placeholder {
 	color: teal;
 }
+
+/* scroll bar */
+
+::-webkit-scrollbar {
+	width: 10px;
+	z-index: 100;
+}
+
+::-webkit-scrollbar-track {
+	background-color: var(--light-blue-50);
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: rgb(0, 216, 216);
+	border-radius: 10px;
+}
