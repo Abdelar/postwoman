@@ -24,12 +24,18 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-::placeholder {
-	color: teal;
-}
 
 text {
 	font-family: 'Syne', sans-serif;
 	margin: 0;
 	padding: 0;
+}
+
+::selection {
+	background-color: var(--foreground-color);
+	color: white;
+}
+
+::placeholder {
+	color: teal;
 }
