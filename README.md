@@ -24,5 +24,5 @@ personalize the request, Set:
 
 ![screenshot_2](src/assets/screenshots2.jpg)
 
-This project is not complete and still under development
+This project is not complete and still under development.
 See the source code on [github](https://github.com/Abdelar/http-client).
