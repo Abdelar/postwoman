@@ -1,6 +1,6 @@
 {
 	"name": "http-client",
-	"homepage": "https://abdelar.github.io/postwomen",
+	"homepage": "https://abdelar.github.io/postwoman",
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {

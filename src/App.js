@@ -149,7 +149,7 @@ function App() {
 	return (
 		<main className='app'>
 			<header>
-				<h1>PostWomen</h1>
+				<h1>PostWoman</h1>
 				<p>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate,
 					repudiandae eius distinctio laboriosam enim quo animi eum recusandae
