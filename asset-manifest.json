@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/postwomen/static/css/main.9fab8094.chunk.css",
+    "main.js": "/postwomen/static/js/main.38465635.chunk.js",
+    "main.js.map": "/postwomen/static/js/main.38465635.chunk.js.map",
+    "runtime-main.js": "/postwomen/static/js/runtime-main.e6655ded.js",
+    "runtime-main.js.map": "/postwomen/static/js/runtime-main.e6655ded.js.map",
+    "static/js/2.06594954.chunk.js": "/postwomen/static/js/2.06594954.chunk.js",
+    "static/js/2.06594954.chunk.js.map": "/postwomen/static/js/2.06594954.chunk.js.map",
+    "index.html": "/postwomen/index.html",
+    "precache-manifest.26e3a316787dc53aba21901ffcc975b0.js": "/postwomen/precache-manifest.26e3a316787dc53aba21901ffcc975b0.js",
+    "service-worker.js": "/postwomen/service-worker.js",
+    "static/css/main.9fab8094.chunk.css.map": "/postwomen/static/css/main.9fab8094.chunk.css.map",
+    "static/js/2.06594954.chunk.js.LICENSE.txt": "/postwomen/static/js/2.06594954.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e6655ded.js",
+    "static/js/2.06594954.chunk.js",
+    "static/css/main.9fab8094.chunk.css",
+    "static/js/main.38465635.chunk.js"
+  ]
+}
