@@ -16,8 +16,12 @@ personalize the request, Set:
 - the response type
 - ...
 
+### The Request
+
 ![screenshot_1](src/assets/screenshots1.jpg)
-</br>
+
+### The Response
+
 ![screenshot_2](src/assets/screenshots2.jpg)
 
 This project is not complete and still under development
