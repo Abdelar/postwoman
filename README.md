@@ -1,4 +1,4 @@
-# POSTWOMEN
+# POSTWOMAN
 
 ## An HTTP client that lets you set your request as you like and send it throw the web afterwards
 
