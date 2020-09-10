@@ -1,8 +1,8 @@
 import React, { useReducer, useEffect } from 'react';
 
-import { Axios } from './Axios';
-import { initialRequestState, requestReducer } from './reducers/Request';
-import { initialResponseState, responseReducer } from './reducers/Response';
+import { Axios } from '../helpers/Axios';
+import { initialRequestState, requestReducer } from '../reducers/Request';
+import { initialResponseState, responseReducer } from '../reducers/Response';
 import { Request } from './Request';
 import { Response } from './Response';
 import { Intro } from './Intro';

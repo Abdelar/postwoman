@@ -1,5 +1,5 @@
 import React from 'react';
-import { METHODS } from './Methods';
+import { METHODS } from '../helpers/Methods';
 import './Request.css';
 
 export const Request = props => {
