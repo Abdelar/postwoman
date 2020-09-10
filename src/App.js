@@ -1,75 +1,11 @@
 import Axios from 'axios';
 import React, { useReducer, useEffect } from 'react';
 
+import { METHODS } from './Methods';
+import { initialRequestState, requestReducer } from './reducers/Request';
+import { initialResponseState, responseReducer } from './reducers/Response';
+import { Intro } from './Intro';
 import './App.css';
-
-const METHODS = [
-	'GET',
-	'POST',
-	'PUT',
-	'DELETE',
-	'PATCH',
-	'HEAD',
-	'OPTIONS',
-	'CONNECT',
-	'TRACE',
-];
-
-const initialRequestState = {
-	transformRequest: (data, headers) => {
-		try {
-			const transformedData = JSON.parse(data);
-			return transformedData;
-		} catch {
-			return data;
-		}
-	},
-};
-const initialResponseState = {};
-
-const responseReducer = (state, action) => {
-	switch (action.type) {
-		case 'SET_RESPONSE':
-			return { ...state, response: action.response, error: null };
-		case 'SET_ERROR':
-			return { ...state, error: action.error, response: null };
-		default:
-			throw new Error('Invalid Request Action');
-	}
-};
-
-const requestReducer = (state, action) => {
-	switch (action.type) {
-		case 'URL_CHANGE':
-			return {
-				...state,
-				url: action.url,
-			};
-		case 'METHOD_CHANGE':
-			return {
-				...state,
-				method: action.method,
-			};
-		case 'HEADERS_CHANGE':
-			return {
-				...state,
-				headers: action.headers,
-			};
-		case 'BODY_CHANGE':
-			return {
-				...state,
-				data: action.body,
-			};
-		case 'OPTIONS_CHANGE':
-			return {
-				...state,
-				options: action.options,
-			};
-
-		default:
-			throw new Error('Invalid Response Action');
-	}
-};
 
 function App() {
 	const [requestState, dispatch] = useReducer(
@@ -148,15 +84,7 @@ function App() {
 
 	return (
 		<main className='app'>
-			<header>
-				<h1>PostWoman</h1>
-				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate,
-					repudiandae eius distinctio laboriosam enim quo animi eum recusandae
-					eveniet voluptatum, impedit dolor. Impedit laudantium minus deleniti
-					ut dignissimos totam quo!
-				</p>
-			</header>
+			<Intro />
 			<article className='row'>
 				<div className='inputs'>
 					<section className='request'>
