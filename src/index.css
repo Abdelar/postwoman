@@ -16,17 +16,19 @@
 	--light-blue-900: #01579b;
 }
 
+* {
+	font-family: 'Syne', sans-serif;
+}
+
 body {
 	margin: 0;
 	box-sizing: border-box;
-	font-family: 'Arvo', serif;
 	color: var(--foreground-color);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
 
 text {
-	font-family: 'Syne', sans-serif;
 	margin: 0;
 	padding: 0;
 }
