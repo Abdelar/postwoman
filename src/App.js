@@ -1,7 +1,7 @@
-import Axios from 'axios';
 import React, { useReducer, useEffect } from 'react';
 
 import { METHODS } from './Methods';
+import { Axios } from './Axios';
 import { initialRequestState, requestReducer } from './reducers/Request';
 import { initialResponseState, responseReducer } from './reducers/Response';
 import { Intro } from './Intro';
