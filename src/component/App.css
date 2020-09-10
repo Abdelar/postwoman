@@ -27,7 +27,6 @@ h2 {
 .inputs {
 	flex: 5;
 	min-width: 400px;
-	/* background-color: rgb(235, 216, 192); */
 }
 .input_element {
 	margin: 10px 0 0 0;

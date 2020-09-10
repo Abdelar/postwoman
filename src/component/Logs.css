@@ -2,6 +2,9 @@
 	width: 200px;
 	min-width: 200px;
 	flex: 1 1 auto;
-	background-color: burlywood;
 	margin-left: 10px;
+}
+.logs_body {
+	border: 1px solid teal;
+	border-radius: 5px;
 }
