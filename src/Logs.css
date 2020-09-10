@@ -1,0 +1,7 @@
+.logs {
+	width: 200px;
+	min-width: 200px;
+	flex: 1 1 auto;
+	background-color: burlywood;
+	margin-left: 10px;
+}

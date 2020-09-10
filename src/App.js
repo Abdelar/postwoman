@@ -5,6 +5,8 @@ import { METHODS } from './Methods';
 import { initialRequestState, requestReducer } from './reducers/Request';
 import { initialResponseState, responseReducer } from './reducers/Response';
 import { Intro } from './Intro';
+import { Logs } from './Logs';
+import { Footer } from './Footer';
 import './App.css';
 
 function App() {
@@ -218,11 +220,9 @@ function App() {
 						</div>
 					</section>
 				</div>
-				<article className='logs'>
-					<h2>Logs</h2>
-				</article>
+				<Logs />
 			</article>
-			<footer>elaroussi.me</footer>
+			<Footer />
 		</main>
 	);
 }

@@ -36,12 +36,6 @@ header p {
 .inputs * {
 	color: teal;
 }
-.logs {
-	width: 200px;
-	min-width: 200px;
-	flex: 1 1 auto;
-	/* background-color: burlywood; */
-}
 .intro {
 	display: flex;
 }
@@ -101,7 +95,4 @@ header p {
 }
 .input_element textarea:focus {
 	background-color: var(--light-blue-50);
-}
-footer {
-	margin: 20px 0;
 }
