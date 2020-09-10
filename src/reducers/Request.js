@@ -11,32 +11,11 @@ export const initialRequestState = {
 
 export const requestReducer = (state, action) => {
 	switch (action.type) {
-		case 'URL_CHANGE':
+		case 'ELEMENT_CHANGE':
 			return {
 				...state,
-				url: action.url,
+				...action.change,
 			};
-		case 'METHOD_CHANGE':
-			return {
-				...state,
-				method: action.method,
-			};
-		case 'HEADERS_CHANGE':
-			return {
-				...state,
-				headers: action.headers,
-			};
-		case 'BODY_CHANGE':
-			return {
-				...state,
-				data: action.body,
-			};
-		case 'OPTIONS_CHANGE':
-			return {
-				...state,
-				options: action.options,
-			};
-
 		default:
 			throw new Error('Invalid Response Action');
 	}

@@ -29,7 +29,7 @@ function App() {
 	}, [responseState]);
 
 	const onRequestChange = change => {
-		dispatch(change);
+		dispatch({ type: 'ELEMENT_CHANGE', change });
 	};
 
 	const sendRequest = async () => {

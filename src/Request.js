@@ -12,9 +12,7 @@ export const Request = props => {
 					list='methods'
 					className='methods'
 					placeholder='METHOD'
-					onChange={event =>
-						props.changed({ type: 'METHOD_CHANGE', method: event.target.value })
-					}
+					onChange={event => props.changed({ method: event.target.value })}
 				/>
 				<datalist id='methods'>
 					{METHODS.map(method => {
@@ -28,9 +26,7 @@ export const Request = props => {
 				<input
 					className='url'
 					placeholder='URL'
-					onChange={event =>
-						props.changed({ type: 'URL_CHANGE', url: event.target.value })
-					}
+					onChange={event => props.changed({ url: event.target.value })}
 				/>
 				<button
 					className='send'
@@ -45,7 +41,6 @@ export const Request = props => {
 					placeholder='Type the headers of the request here'
 					onChange={event =>
 						props.changed({
-							type: 'HEADERS_CHANGE',
 							headers: event.target.value,
 						})
 					}
@@ -56,21 +51,14 @@ export const Request = props => {
 				<label>Body</label>
 				<textarea
 					placeholder='Type the body of the request here'
-					onChange={event =>
-						props.changed({ type: 'BODY_CHANGE', body: event.target.value })
-					}
+					onChange={event => props.changed({ data: event.target.value })}
 					rows={props.requestState.data ? 10 : 1}
 				/>
 			</div>
 			<div className='input_element'>
 				<label>Other Options</label>
 				<textarea
-					onChange={event =>
-						props.changed({
-							type: 'OPTIONS_CHANGE',
-							options: event.target.value,
-						})
-					}
+					onChange={event => props.changed({ options: event.target.value })}
 					placeholder='You can pass a JSON object containing other parameters that you want to add to the request'
 					rows={props.requestState.options ? 10 : 1}
 				/>
