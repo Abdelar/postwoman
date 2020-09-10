@@ -8,6 +8,8 @@ import { Response } from './Response';
 import { Intro } from './Intro';
 import { Logs } from './Logs';
 import { Footer } from './Footer';
+import { withElementParsed } from '../helpers/withElementsParsed';
+import { patchUrl } from '../helpers/patchUrl';
 import './App.css';
 
 function App() {
@@ -34,22 +36,14 @@ function App() {
 
 	const sendRequest = async () => {
 		if (requestState.url) {
-			let config = requestState;
-			config.url =
-				config.url.toLowerCase().startsWith('http://') ||
-				config.url.toLowerCase().startsWith('https://')
-					? config.url
-					: 'http://' + config.url;
-			if (requestState.headers) {
-				try {
-					config.headers = JSON.parse(config.headers);
-				} catch {}
-			}
-			if (requestState.options) {
-				try {
-					config = { ...config, ...JSON.parse(config.options) };
-				} catch {}
-			}
+			let config = withElementParsed(
+				{ ...requestState },
+				'headers',
+				'data',
+				'options'
+			);
+			config.url = patchUrl(config.url);
+
 			try {
 				const res = await Axios(config);
 				dispatchResponse({ type: 'SET_RESPONSE', response: res });

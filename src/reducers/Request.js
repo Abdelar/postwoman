@@ -1,13 +1,4 @@
-export const initialRequestState = {
-	transformRequest: (data, headers) => {
-		try {
-			const transformedData = JSON.parse(data);
-			return transformedData;
-		} catch {
-			return data;
-		}
-	},
-};
+export const initialRequestState = {};
 
 export const requestReducer = (state, action) => {
 	switch (action.type) {
