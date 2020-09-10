@@ -28,8 +28,8 @@ function App() {
 		// console.log(responseState);
 	}, [responseState]);
 
-	const onRequestChange = changement => {
-		dispatch(changement);
+	const onRequestChange = change => {
+		dispatch(change);
 	};
 
 	const sendRequest = async () => {
