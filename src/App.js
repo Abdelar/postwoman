@@ -1,9 +1,9 @@
 import React, { useReducer, useEffect } from 'react';
 
-import { METHODS } from './Methods';
 import { Axios } from './Axios';
 import { initialRequestState, requestReducer } from './reducers/Request';
 import { initialResponseState, responseReducer } from './reducers/Response';
+import { Request } from './Request';
 import { Intro } from './Intro';
 import { Logs } from './Logs';
 import { Footer } from './Footer';
@@ -27,24 +27,27 @@ function App() {
 		console.log(responseState);
 	}, [responseState]);
 
-	const onUrlChange = event => {
-		dispatch({ type: 'URL_CHANGE', url: event.target.value });
-	};
-
-	const onMethodChange = event => {
-		dispatch({ type: 'METHOD_CHANGE', method: event.target.value });
-	};
-
-	const onHeadersChange = event => {
-		dispatch({ type: 'HEADERS_CHANGE', headers: event.target.value });
-	};
-
-	const onBodyChange = event => {
-		dispatch({ type: 'BODY_CHANGE', body: event.target.value });
-	};
-
-	const onOptionsChange = event => {
-		dispatch({ type: 'OPTIONS_CHANGE', options: event.target.value });
+	const onRequestChange = (field, value) => {
+		// dispatch({ type: field, url: value });
+		switch (field) {
+			case 'METHOD_CHANGE':
+				dispatch({ type: field, method: value });
+				break;
+			case 'HEADERS_CHANGE':
+				dispatch({ type: field, headers: value });
+				break;
+			case 'URL_CHANGE':
+				dispatch({ type: field, url: value });
+				break;
+			case 'BODY_CHANGE':
+				dispatch({ type: field, body: value });
+				break;
+			case 'OPTIONS_CHANGE':
+				dispatch({ type: field, options: value });
+				break;
+			default:
+				throw new Error('There is no such action in the request reducer');
+		}
 	};
 
 	const sendRequest = async () => {
@@ -89,58 +92,11 @@ function App() {
 			<Intro />
 			<article className='row'>
 				<div className='inputs'>
-					<section className='request'>
-						<h2>Request</h2>
-						<div className='intro'>
-							<input
-								name='method'
-								list='methods'
-								className='methods'
-								placeholder='METHOD'
-								onChange={onMethodChange}
-							/>
-							<datalist id='methods'>
-								{METHODS.map(method => {
-									return (
-										<option key={method} value={method}>
-											{method}
-										</option>
-									);
-								})}
-							</datalist>
-							<input className='url' placeholder='URL' onChange={onUrlChange} />
-							<button
-								className='send'
-								onClick={sendRequest}
-								disabled={!requestState.url}>
-								Send
-							</button>
-						</div>
-						<div className='input_element'>
-							<label>Headers</label>
-							<textarea
-								placeholder='Type the headers of the request here'
-								onChange={onHeadersChange}
-								rows={requestState.headers ? 10 : 1}
-							/>
-						</div>
-						<div className='input_element'>
-							<label>Body</label>
-							<textarea
-								placeholder='Type the body of the request here'
-								onChange={onBodyChange}
-								rows={requestState.data ? 10 : 1}
-							/>
-						</div>
-						<div className='input_element'>
-							<label>Other Options</label>
-							<textarea
-								onChange={onOptionsChange}
-								placeholder='You can pass a JSON object containing other parameters that you want to add to the request'
-								rows={requestState.options ? 10 : 1}
-							/>
-						</div>
-					</section>
+					<Request
+						changed={onRequestChange}
+						requestState={requestState}
+						sendRequest={sendRequest}
+					/>
 					<section className='response'>
 						<h2>Response</h2>
 						<div className='input_element'>

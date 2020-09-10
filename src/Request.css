@@ -1,0 +1,40 @@
+.inputs * {
+	color: teal;
+}
+.intro {
+	display: flex;
+}
+.intro > * {
+	border-radius: 5px;
+	border: 1px solid teal;
+	background-color: white;
+}
+.intro > *:focus {
+	border-radius: 5px;
+	border: 1px solid var(--light-blue-500);
+	background-color: var(--light-blue-50);
+}
+.url {
+	flex: 1 1 auto;
+	height: auto;
+	margin: 0 5px;
+	padding: 10px;
+	resize: none;
+}
+
+.methods {
+	width: 90px;
+	display: inline-block;
+	cursor: pointer;
+	padding-left: 10px;
+}
+.send {
+	cursor: pointer;
+	padding: 10px 15px;
+}
+.send:disabled {
+	cursor: not-allowed;
+}
+.send:hover {
+	border-color: var(--light-blue-500);
+}

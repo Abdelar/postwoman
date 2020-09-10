@@ -1,9 +1,5 @@
 import axios from 'axios';
-export const Axios = axios.create({
-	// baseURL: 'jsonplaceholder.typicode.com/',
-	// timeout: 1000,
-	// headers: { 'X-Custom-Header': 'foobar' },
-});
+export const Axios = axios.create();
 
 Axios.interceptors.request.use(
 	function (config) {
