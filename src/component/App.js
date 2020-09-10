@@ -9,7 +9,7 @@ import { Intro } from './Intro';
 import { Logs } from './Logs';
 import { Footer } from './Footer';
 import { withElementParsed } from '../helpers/withElementsParsed';
-import { patchUrl } from '../helpers/patchUrl';
+import { normalizeUrl } from '../helpers/normalizeUrl';
 import './App.css';
 
 function App() {
@@ -42,7 +42,7 @@ function App() {
 				'data',
 				'options'
 			);
-			config.url = patchUrl(config.url);
+			config.url = normalizeUrl(config.url);
 
 			try {
 				const res = await Axios(config);
