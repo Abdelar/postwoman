@@ -8,8 +8,6 @@ import { Response } from './Response';
 import { Intro } from './Intro';
 import { Logs } from './Logs';
 import { Footer } from './Footer';
-import { withElementParsed } from '../helpers/withElementsParsed';
-import { normalizeUrl } from '../helpers/normalizeUrl';
 import './App.css';
 
 function App() {
@@ -36,25 +34,16 @@ function App() {
 
 	const sendRequest = async () => {
 		if (requestState.url) {
-			let config = withElementParsed(
-				{ ...requestState },
-				'headers',
-				'data',
-				'options'
-			);
-			config.url = normalizeUrl(config.url);
-
 			try {
-				const res = await Axios(config);
+				const res = await Axios(requestState);
 				dispatchResponse({ type: 'SET_RESPONSE', response: res });
-
 				console.log(res);
 			} catch (err) {
 				dispatchResponse({
 					type: 'SET_ERROR',
 					error: err.response || err.request || err,
 				});
-				console.log(err);
+				console.log(err.message);
 				console.log({ error: err.response || err.request || err });
 			}
 		}
