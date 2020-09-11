@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/postwoman/static/css/main.f070b514.chunk.css",
-    "main.js": "/postwoman/static/js/main.1cb44006.chunk.js",
-    "main.js.map": "/postwoman/static/js/main.1cb44006.chunk.js.map",
+    "main.css": "/postwoman/static/css/main.fbda0d3b.chunk.css",
+    "main.js": "/postwoman/static/js/main.e072d10b.chunk.js",
+    "main.js.map": "/postwoman/static/js/main.e072d10b.chunk.js.map",
     "runtime-main.js": "/postwoman/static/js/runtime-main.79b13b6b.js",
     "runtime-main.js.map": "/postwoman/static/js/runtime-main.79b13b6b.js.map",
-    "static/js/2.2043807a.chunk.js": "/postwoman/static/js/2.2043807a.chunk.js",
-    "static/js/2.2043807a.chunk.js.map": "/postwoman/static/js/2.2043807a.chunk.js.map",
+    "static/js/2.8b928237.chunk.js": "/postwoman/static/js/2.8b928237.chunk.js",
+    "static/js/2.8b928237.chunk.js.map": "/postwoman/static/js/2.8b928237.chunk.js.map",
     "index.html": "/postwoman/index.html",
-    "precache-manifest.af49eab8bc6b8032dd0f2b318de5c10d.js": "/postwoman/precache-manifest.af49eab8bc6b8032dd0f2b318de5c10d.js",
+    "precache-manifest.8bc9ee65e2729a1ddbf20730e5a5e237.js": "/postwoman/precache-manifest.8bc9ee65e2729a1ddbf20730e5a5e237.js",
     "service-worker.js": "/postwoman/service-worker.js",
-    "static/css/main.f070b514.chunk.css.map": "/postwoman/static/css/main.f070b514.chunk.css.map",
-    "static/js/2.2043807a.chunk.js.LICENSE.txt": "/postwoman/static/js/2.2043807a.chunk.js.LICENSE.txt"
+    "static/css/main.fbda0d3b.chunk.css.map": "/postwoman/static/css/main.fbda0d3b.chunk.css.map",
+    "static/js/2.8b928237.chunk.js.LICENSE.txt": "/postwoman/static/js/2.8b928237.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.79b13b6b.js",
-    "static/js/2.2043807a.chunk.js",
-    "static/css/main.f070b514.chunk.css",
-    "static/js/main.1cb44006.chunk.js"
+    "static/js/2.8b928237.chunk.js",
+    "static/css/main.fbda0d3b.chunk.css",
+    "static/js/main.e072d10b.chunk.js"
   ]
 }
