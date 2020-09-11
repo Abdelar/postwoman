@@ -1,4 +1,5 @@
 import axios from 'axios';
+import moment from 'moment';
 import { withElementParsed } from './withElementsParsed';
 // import { normalizeUrl } from './normalizeUrl';
 
@@ -12,7 +13,7 @@ Axios.interceptors.request.use(
 			'data',
 			'options'
 		);
-		updatedConfig.sendingTime = new Date();
+		updatedConfig.sendingTime = moment().format('MMMM Do YYYY, h:mm:ss a');
 		// if (updatedConfig.baseURL) {
 		// 	console.log('normalizing base url');
 		// 	updatedConfig.baseURL = normalizeUrl(updatedConfig.baseURL);
