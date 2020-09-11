@@ -5,9 +5,12 @@
 	margin-left: 10px;
 }
 .logs_body {
-	padding: 0 5px;
+	padding: 10px 5px;
 	border: 1px solid teal;
 	border-radius: 5px;
+}
+.logs_body h3 {
+	margin: 0;
 }
 
 .log {
@@ -15,12 +18,17 @@
 	align-items: center;
 	flex-direction: column;
 	border-bottom: 1px solid teal;
-	margin: 10px 0;
+	margin-bottom: 10px;
 	padding-bottom: 10px;
+	cursor: pointer;
+	border-radius: 5px;
+}
+.log:hover {
+	background-color: var(--light-blue-50);
 }
 .log:last-of-type {
 	border: none;
-	padding: 0;
+	margin: 0 0 5px 0;
 }
 
 .log_url {
@@ -34,7 +42,6 @@
 	color: var(--date-color);
 }
 .log_clear {
-	margin-bottom: 10px;
 	padding: 5px 10px;
 	background-color: white;
 	border: 1px solid teal;
