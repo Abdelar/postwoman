@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { withElementParsed } from './withElementsParsed';
-import { normalizeUrl } from './normalizeUrl';
+// import { normalizeUrl } from './normalizeUrl';
 
 export const Axios = axios.create();
 
@@ -12,7 +12,13 @@ Axios.interceptors.request.use(
 			'data',
 			'options'
 		);
-		updatedConfig.url = normalizeUrl(updatedConfig.url);
+		updatedConfig.sendingTime = new Date();
+		// if (updatedConfig.baseURL) {
+		// 	console.log('normalizing base url');
+		// 	updatedConfig.baseURL = normalizeUrl(updatedConfig.baseURL);
+		// } else {
+		// 	updatedConfig.url = normalizeUrl(updatedConfig.url);
+		// }
 		if (updatedConfig.options) {
 			updatedConfig = { ...updatedConfig, ...updatedConfig.options };
 			delete updatedConfig.options;

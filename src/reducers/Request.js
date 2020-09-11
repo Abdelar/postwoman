@@ -1,5 +1,5 @@
 export const initialRequestState = {
-	url: 'jsonplaceholder.typicode.com/posts/1', // for debugging purposes
+	url: 'http://jsonplaceholder.typicode.com/posts/1', // for debugging purposes
 };
 
 export const requestReducer = (state, action) => {

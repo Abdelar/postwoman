@@ -1,6 +1,8 @@
 import React, { useReducer, useEffect } from 'react';
 
 import { Axios } from '../helpers/Axios';
+import { useLocalStorage } from '../helpers/useLocalStorage';
+import { updateLocalStorage } from '../helpers/updateLocalStorage';
 import { initialRequestState, requestReducer } from '../reducers/Request';
 import { initialResponseState, responseReducer } from '../reducers/Response';
 import { Request } from './Request';
@@ -11,6 +13,8 @@ import { Footer } from './Footer';
 import './App.css';
 
 function App() {
+	const [logs, setLogs] = useLocalStorage('logs', '[]');
+
 	const [requestState, dispatch] = useReducer(
 		requestReducer,
 		initialRequestState
@@ -37,7 +41,8 @@ function App() {
 			try {
 				const res = await Axios(requestState);
 				dispatchResponse({ type: 'SET_RESPONSE', response: res });
-				console.log(res);
+				const updatedLogs = updateLocalStorage(logs, res, setLogs);
+				console.log(updatedLogs);
 			} catch (err) {
 				dispatchResponse({
 					type: 'SET_ERROR',
