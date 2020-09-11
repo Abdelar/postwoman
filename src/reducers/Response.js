@@ -2,12 +2,10 @@ export const initialResponseState = {};
 export const responseReducer = (state, action) => {
 	switch (action.type) {
 		case 'SET_RESPONSE':
-			return { ...state, response: action.response, error: null };
+			return { response: action.response };
 		case 'SET_ERROR':
 			return {
-				...state,
 				error: action.error,
-				response: null,
 				errorMessage: action.errorMessage,
 			};
 		case 'CLEAR':
