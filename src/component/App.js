@@ -8,6 +8,7 @@ import { initialResponseState, responseReducer } from '../reducers/Response';
 import { Request } from './Request';
 import { Response } from './Response';
 import { Intro } from './Intro';
+import { Error } from './Error';
 import { Logs } from './Logs';
 import { Footer } from './Footer';
 import './App.css';
@@ -47,11 +48,12 @@ function App() {
 					dispatchResponse({
 						type: 'SET_ERROR',
 						error: err.response,
+						errorMessage: err.message,
 					});
 					updateLocalStorage(logs, err.response, setLogs);
 				} else {
 					updateLocalStorage(logs, err, setLogs);
-					dispatchResponse({ type: 'CLEAR' });
+					dispatchResponse({ type: 'CLEAR', errorMessage: err.message });
 				}
 			}
 		}
@@ -71,6 +73,12 @@ function App() {
 				</div>
 				<Logs logs={JSON.parse(logs)} clear={() => setLogs('[]')} />
 			</article>
+			<Error
+				errorMessage={responseState.errorMessage}
+				clearErrorMessage={() =>
+					dispatchResponse({ type: 'CLEAR_ERROR_MESSAGE' })
+				}
+			/>
 			<Footer />
 		</main>
 	);
