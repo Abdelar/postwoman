@@ -66,7 +66,7 @@ function App() {
 					/>
 					<Response responseState={responseState} />
 				</div>
-				<Logs />
+				<Logs logs={JSON.parse(logs)} clear={() => setLogs('[]')} />
 			</article>
 			<Footer />
 		</main>
