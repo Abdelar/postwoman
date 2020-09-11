@@ -11,9 +11,7 @@ export const Logs = props => {
 					return (
 						<div className='log' key={log.config.sendingTime}>
 							<span className='log_url'>{log.config.url}</span>
-							<span className='log_timestamp'>
-								{log.config.sendingTime.toString()}
-							</span>
+							<span className='log_timestamp'>{log.config.sendingTime}</span>
 						</div>
 					);
 				})}
