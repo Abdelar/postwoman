@@ -5,6 +5,8 @@ export const responseReducer = (state, action) => {
 			return { ...state, response: action.response, error: null };
 		case 'SET_ERROR':
 			return { ...state, error: action.error, response: null };
+		case 'CLEAR':
+			return {};
 		default:
 			throw new Error('Invalid Request Action');
 	}

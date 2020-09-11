@@ -41,15 +41,18 @@ function App() {
 			try {
 				const res = await Axios(requestState);
 				dispatchResponse({ type: 'SET_RESPONSE', response: res });
-				const updatedLogs = updateLocalStorage(logs, res, setLogs);
-				console.log(updatedLogs);
+				updateLocalStorage(logs, res, setLogs);
 			} catch (err) {
-				dispatchResponse({
-					type: 'SET_ERROR',
-					error: err.response || err.request || err,
-				});
-				console.log(err.message);
-				console.log({ error: err.response || err.request || err });
+				if (err.response) {
+					dispatchResponse({
+						type: 'SET_ERROR',
+						error: err.response,
+					});
+					updateLocalStorage(logs, err.response, setLogs);
+				} else {
+					updateLocalStorage(logs, err, setLogs);
+					dispatchResponse({ type: 'CLEAR' });
+				}
 			}
 		}
 	};
