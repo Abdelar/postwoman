@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/postwoman/static/css/main.28f15dfc.chunk.css",
+    "main.css": "/postwoman/static/css/main.f070b514.chunk.css",
     "main.js": "/postwoman/static/js/main.1cb44006.chunk.js",
     "main.js.map": "/postwoman/static/js/main.1cb44006.chunk.js.map",
     "runtime-main.js": "/postwoman/static/js/runtime-main.79b13b6b.js",
@@ -8,15 +8,15 @@
     "static/js/2.2043807a.chunk.js": "/postwoman/static/js/2.2043807a.chunk.js",
     "static/js/2.2043807a.chunk.js.map": "/postwoman/static/js/2.2043807a.chunk.js.map",
     "index.html": "/postwoman/index.html",
-    "precache-manifest.f898a01f78d311e7ed7aaf024b6a4568.js": "/postwoman/precache-manifest.f898a01f78d311e7ed7aaf024b6a4568.js",
+    "precache-manifest.af49eab8bc6b8032dd0f2b318de5c10d.js": "/postwoman/precache-manifest.af49eab8bc6b8032dd0f2b318de5c10d.js",
     "service-worker.js": "/postwoman/service-worker.js",
-    "static/css/main.28f15dfc.chunk.css.map": "/postwoman/static/css/main.28f15dfc.chunk.css.map",
+    "static/css/main.f070b514.chunk.css.map": "/postwoman/static/css/main.f070b514.chunk.css.map",
     "static/js/2.2043807a.chunk.js.LICENSE.txt": "/postwoman/static/js/2.2043807a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.79b13b6b.js",
     "static/js/2.2043807a.chunk.js",
-    "static/css/main.28f15dfc.chunk.css",
+    "static/css/main.f070b514.chunk.css",
     "static/js/main.1cb44006.chunk.js"
   ]
 }
