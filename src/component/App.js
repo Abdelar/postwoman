@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer, useState } from 'react';
 
 import { Axios } from '../helpers/Axios';
 import { useLocalStorage } from '../helpers/useLocalStorage';
@@ -15,6 +15,7 @@ import './App.css';
 
 function App() {
 	const [logs, setLogs] = useLocalStorage('logs', '[]');
+	const [disableSend, setDisableSend] = useState(false);
 
 	const [requestState, dispatch] = useReducer(
 		requestReducer,
@@ -26,23 +27,18 @@ function App() {
 		initialResponseState
 	);
 
-	useEffect(() => {
-		// console.log(requestState);
-	}, [requestState]);
-	useEffect(() => {
-		// console.log(responseState);
-	}, [responseState]);
-
 	const onRequestChange = change => {
 		dispatch({ type: 'ELEMENT_CHANGE', change });
 	};
 
 	const sendRequest = async () => {
 		if (requestState.url) {
+			setDisableSend(true);
 			try {
 				const res = await Axios(requestState);
 				dispatchResponse({ type: 'SET_RESPONSE', response: res });
 				updateLocalStorage(logs, res, setLogs);
+				setDisableSend(false);
 			} catch (err) {
 				if (err.response) {
 					dispatchResponse({
@@ -55,6 +51,7 @@ function App() {
 					updateLocalStorage(logs, err, setLogs);
 					dispatchResponse({ type: 'CLEAR', errorMessage: err.message });
 				}
+				setDisableSend(false);
 			}
 		}
 	};
@@ -65,6 +62,7 @@ function App() {
 			<article className='row'>
 				<div className='inputs'>
 					<Request
+						disableSend={disableSend}
 						changed={onRequestChange}
 						requestState={requestState}
 						sendRequest={sendRequest}

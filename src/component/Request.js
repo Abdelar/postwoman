@@ -32,7 +32,7 @@ export const Request = props => {
 				<button
 					className='send'
 					onClick={props.sendRequest}
-					disabled={!props.requestState.url}>
+					disabled={!props.requestState.url || props.disableSend}>
 					Send
 				</button>
 			</div>
