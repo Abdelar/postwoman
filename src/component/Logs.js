@@ -9,7 +9,7 @@ export const Logs = props => {
 				{!props.logs.length && <h3>Wow, such empty</h3>}
 				{props.logs.map(log => {
 					return (
-						<div className='log' key={log.config.sendingTime}>
+						<div className='log' key={log.config.requestID}>
 							<span className='log_url'>{log.config.url}</span>
 							<span className='log_timestamp'>{log.config.sendingTime}</span>
 						</div>

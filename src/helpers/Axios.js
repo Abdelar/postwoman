@@ -2,6 +2,7 @@ import axios from 'axios';
 import moment from 'moment';
 import { withElementParsed } from './withElementsParsed';
 // import { normalizeUrl } from './normalizeUrl';
+import uid from 'uid';
 
 export const Axios = axios.create();
 
@@ -13,6 +14,7 @@ Axios.interceptors.request.use(
 			'data',
 			'options'
 		);
+		updatedConfig.requestID = uid();
 		updatedConfig.sendingTime = moment().format('MMMM Do YYYY, h:mm:ss a');
 		// if (updatedConfig.baseURL) {
 		// 	console.log('normalizing base url');
