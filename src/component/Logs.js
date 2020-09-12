@@ -1,7 +1,21 @@
 import React from 'react';
+import { withStyles } from '@material-ui/core/styles';
+import Tooltip from '@material-ui/core/Tooltip';
+import { LogTooltip } from './LogTooltip';
 import './Logs.css';
 
 export const Logs = props => {
+	const HtmlTooltip = withStyles(theme => ({
+		tooltip: {
+			backgroundColor: 'var(--tooltip-background)',
+			color: 'var(--tooltip-foreground)',
+			maxWidth: 300,
+			fontSize: theme.typography.pxToRem(12),
+			textAlign: 'center',
+			border: '1px solid var(--tooltip-borders)',
+		},
+	}))(Tooltip);
+
 	return (
 		<article className='logs'>
 			<h2>Logs</h2>
@@ -9,10 +23,16 @@ export const Logs = props => {
 				{!props.logs.length && <h3>Wow, such empty</h3>}
 				{props.logs.map(log => {
 					return (
-						<div className='log' key={log.config.requestID}>
-							<span className='log_url'>{log.config.url}</span>
-							<span className='log_timestamp'>{log.config.sendingTime}</span>
-						</div>
+						<HtmlTooltip
+							arrow
+							// placement='left'
+							title={<LogTooltip log={log} />}
+							key={log.config.requestID}>
+							<div className='log'>
+								<span className='log_url'>{log.config.url}</span>
+								<span className='log_timestamp'>{log.config.sendingTime}</span>
+							</div>
+						</HtmlTooltip>
 					);
 				})}
 				{props.logs.length !== 0 && (
