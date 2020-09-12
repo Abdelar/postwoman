@@ -1,3 +1,6 @@
+.log_tooltip * {
+	margin: 0 0 10px 0;
+}
 .log_tooltip h4 {
 	margin-top: 0;
 }
