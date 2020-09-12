@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/postwoman/precache-manifest.8bc9ee65e2729a1ddbf20730e5a5e237.js"
+  "/postwoman/precache-manifest.64e18e97707588e1dcc633baeec54a31.js"
 );
 
 self.addEventListener('message', (event) => {
