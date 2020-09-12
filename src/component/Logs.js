@@ -25,7 +25,7 @@ export const Logs = props => {
 					return (
 						<HtmlTooltip
 							arrow
-							// placement='left'
+							interactive
 							title={<LogTooltip log={log} />}
 							key={log.config.requestID}>
 							<div className='log'>
