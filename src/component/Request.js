@@ -40,9 +40,7 @@ export const Request = props => {
 			<div className='input_element'>
 				<label>
 					Headers
-					<Tooltip
-						interactive
-						title='Optional: Pass your headers as a JSON object'>
+					<Tooltip title='Optional: Pass your headers as a JSON object'>
 						<span>i</span>
 					</Tooltip>
 				</label>
@@ -74,7 +72,7 @@ export const Request = props => {
 					Other Options
 					<Tooltip
 						interactive
-						title='Optional: Visit https://github.com/axios/axios#request-config to see what options you can add to the http request'>
+						title='Optional: Pass a additional options as a JSON object, something like: responseType, timeout, proxy, maxRedirects, maxBodyLength, maxContentLength... Visit https://github.com/axios/axios#request-config to see what options you can add to the http request.'>
 						<span>i</span>
 					</Tooltip>
 				</label>
