@@ -26,7 +26,6 @@ export const Request = props => {
 				<input
 					className='url'
 					placeholder='URL'
-					value={props.requestState.url}
 					onChange={event => props.changed({ url: event.target.value })}
 				/>
 				<button
