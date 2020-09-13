@@ -1,5 +1,6 @@
 import React from 'react';
 import { METHODS } from '../helpers/Methods';
+import Tooltip from '@material-ui/core/Tooltip';
 import './Request.css';
 
 export const Request = props => {
@@ -37,7 +38,14 @@ export const Request = props => {
 				</button>
 			</div>
 			<div className='input_element'>
-				<label>Headers</label>
+				<label>
+					Headers
+					<Tooltip
+						interactive
+						title='Optional: Pass your headers as a JSON object'>
+						<span>i</span>
+					</Tooltip>
+				</label>
 				<textarea
 					placeholder='Type the headers of the request here in JSON format'
 					onChange={event =>
@@ -50,7 +58,10 @@ export const Request = props => {
 			</div>
 			<div className='input_element'>
 				<label>
-					Body <span title='Optional: Plain text or JSON format'>i</span>
+					Body
+					<Tooltip title={'Optional: Plain text or JSON format'}>
+						<span>i</span>
+					</Tooltip>
 				</label>
 				<textarea
 					placeholder='Type the body of the request here in JSON format'
@@ -61,9 +72,11 @@ export const Request = props => {
 			<div className='input_element'>
 				<label>
 					Other Options
-					<span title='Optional: Visit https://github.com/axios/axios#request-config to see what options you can add to the http request'>
-						i
-					</span>
+					<Tooltip
+						interactive
+						title='Optional: Visit https://github.com/axios/axios#request-config to see what options you can add to the http request'>
+						<span>i</span>
+					</Tooltip>
 				</label>
 				<textarea
 					onChange={event => props.changed({ options: event.target.value })}
