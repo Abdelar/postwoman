@@ -10,6 +10,7 @@ export const Request = props => {
 				<input
 					name='method'
 					list='methods'
+					title='GET by default'
 					className='methods'
 					placeholder='METHOD'
 					onChange={event => props.changed({ method: event.target.value })}
@@ -48,7 +49,9 @@ export const Request = props => {
 				/>
 			</div>
 			<div className='input_element'>
-				<label>Body</label>
+				<label>
+					Body <span title='Optional: Plain text or JSON format'>i</span>
+				</label>
 				<textarea
 					placeholder='Type the body of the request here in JSON format'
 					onChange={event => props.changed({ data: event.target.value })}
@@ -56,8 +59,11 @@ export const Request = props => {
 				/>
 			</div>
 			<div className='input_element'>
-				<label title='Visit https://github.com/axios/axios#request-config to see what options you can add to the http request'>
+				<label>
 					Other Options
+					<span title='Optional: Visit https://github.com/axios/axios#request-config to see what options you can add to the http request'>
+						i
+					</span>
 				</label>
 				<textarea
 					onChange={event => props.changed({ options: event.target.value })}
