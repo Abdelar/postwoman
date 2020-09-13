@@ -2,6 +2,7 @@
 	margin: 0 10vw;
 	text-align: center;
 }
+
 h1,
 h2 {
 	font-family: 'Arvo', serif;
@@ -26,7 +27,8 @@ h2 {
 }
 .inputs {
 	flex: 5;
-	min-width: 400px;
+	min-width: 350px;
+	max-width: 100%;
 }
 .input_element {
 	margin: 10px 0 0 0;

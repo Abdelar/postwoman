@@ -1,8 +1,8 @@
 .logs {
+	margin: 0 10px;
 	width: 200px;
-	min-width: 200px;
+	min-width: 300px;
 	flex: 1 1 auto;
-	margin-left: 10px;
 }
 .logs_body {
 	padding: 10px 5px;
