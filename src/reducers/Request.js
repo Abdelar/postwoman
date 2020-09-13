@@ -1,6 +1,4 @@
-export const initialRequestState = {
-	url: 'http://jsonplaceholder.typicode.com/posts/1', // for debugging purposes
-};
+export const initialRequestState = {};
 
 export const requestReducer = (state, action) => {
 	switch (action.type) {
