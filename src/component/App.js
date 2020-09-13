@@ -1,4 +1,5 @@
 import React, { useReducer, useState } from 'react';
+import isObject from 'isobject';
 
 import { Axios } from '../helpers/Axios';
 import { useLocalStorage } from '../helpers/useLocalStorage';
@@ -36,7 +37,9 @@ function App() {
 			setDisableSend(true);
 			try {
 				if (requestState.headers) {
-					JSON.parse(requestState.headers);
+					if (!isObject(JSON.parse(requestState.headers))) {
+						throw new Error("Can't parse headers to a valid JSON object");
+					}
 				}
 				try {
 					const res = await Axios(requestState);
