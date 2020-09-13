@@ -56,7 +56,9 @@ export const Request = props => {
 				/>
 			</div>
 			<div className='input_element'>
-				<label>Other Options</label>
+				<label title='Visit https://github.com/axios/axios#request-config to see what options you can add to the http request'>
+					Other Options
+				</label>
 				<textarea
 					onChange={event => props.changed({ options: event.target.value })}
 					placeholder='You can pass a JSON object containing other parameters that you want to add to the request'
