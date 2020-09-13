@@ -35,23 +35,34 @@ function App() {
 		if (requestState.url) {
 			setDisableSend(true);
 			try {
-				const res = await Axios(requestState);
-				dispatchResponse({ type: 'SET_RESPONSE', response: res });
-				updateLocalStorage(logs, res, setLogs);
-				setDisableSend(false);
-			} catch (err) {
-				if (err.response) {
-					dispatchResponse({
-						type: 'SET_ERROR',
-						error: err.response,
-						errorMessage: err.message,
-					});
-					updateLocalStorage(logs, err.response, setLogs);
-				} else {
-					updateLocalStorage(logs, err, setLogs);
-					dispatchResponse({ type: 'CLEAR', errorMessage: err.message });
+				if (requestState.headers) {
+					JSON.parse(requestState.headers);
 				}
+				try {
+					const res = await Axios(requestState);
+					dispatchResponse({ type: 'SET_RESPONSE', response: res });
+					updateLocalStorage(logs, res, setLogs);
+					setDisableSend(false);
+				} catch (err) {
+					if (err.response) {
+						dispatchResponse({
+							type: 'SET_ERROR',
+							error: err.response,
+							errorMessage: err.message,
+						});
+						updateLocalStorage(logs, err.response, setLogs);
+					} else {
+						updateLocalStorage(logs, err, setLogs);
+						dispatchResponse({ type: 'CLEAR', errorMessage: err.message });
+					}
+					setDisableSend(false);
+				}
+			} catch (err) {
 				setDisableSend(false);
+				dispatchResponse({
+					type: 'CLEAR',
+					errorMessage: 'Error parsing HTTP request header',
+				});
 			}
 		}
 	};

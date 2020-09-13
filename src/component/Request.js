@@ -39,7 +39,7 @@ export const Request = props => {
 			<div className='input_element'>
 				<label>Headers</label>
 				<textarea
-					placeholder='Type the headers of the request here'
+					placeholder='Type the headers of the request here in JSON format'
 					onChange={event =>
 						props.changed({
 							headers: event.target.value,
@@ -51,7 +51,7 @@ export const Request = props => {
 			<div className='input_element'>
 				<label>Body</label>
 				<textarea
-					placeholder='Type the body of the request here'
+					placeholder='Type the body of the request here in JSON format'
 					onChange={event => props.changed({ data: event.target.value })}
 					rows={props.requestState.data ? 10 : 1}
 				/>
