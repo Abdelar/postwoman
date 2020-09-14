@@ -24,6 +24,7 @@ h2 {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	margin: 0 -5px;
 }
 .inputs {
 	flex: 5;
