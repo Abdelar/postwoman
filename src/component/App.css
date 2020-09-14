@@ -29,6 +29,7 @@ h2 {
 	flex: 5;
 	min-width: 350px;
 	max-width: 100%;
+	margin: 0 5px;
 }
 .input_element {
 	margin: 10px 0 0 0;
