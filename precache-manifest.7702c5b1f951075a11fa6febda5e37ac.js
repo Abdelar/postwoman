@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c527238d8a71f5b6c689dd07cd0ad15a",
+    "revision": "36e64ba484129d3f12d952af74503e5d",
     "url": "/postwoman/index.html"
   },
   {
-    "revision": "d74bb066080c048f1fd4",
-    "url": "/postwoman/static/css/main.2866ddda.chunk.css"
+    "revision": "26d4ce1242e2a05c9cd0",
+    "url": "/postwoman/static/css/main.774ae6cb.chunk.css"
   },
   {
     "revision": "b2e15747f3f0e376faed",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/postwoman/static/js/2.aee074c3.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d74bb066080c048f1fd4",
+    "revision": "26d4ce1242e2a05c9cd0",
     "url": "/postwoman/static/js/main.62607846.chunk.js"
   },
   {
