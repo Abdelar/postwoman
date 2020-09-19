@@ -38,6 +38,6 @@ npm start
 npm run build
 ```
 
-### ⚠️ Disclaimer
+### Disclaimer
 
-This project is not complete and still under development.
+⚠️ This project is not complete and still under development.
