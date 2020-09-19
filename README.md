@@ -16,6 +16,8 @@ personalize the request, Set:
 - the response type
 - ...
 
+### [Demo](https://elaroussi.me/postwoman)
+
 ### The Request
 
 ![screenshot_1](src/assets/screenshots1.jpg)
@@ -23,6 +25,18 @@ personalize the request, Set:
 ### The Response
 
 ![screenshot_2](src/assets/screenshots2.jpg)
+
+### Clone The Project
+
+```bash
+git clone https://github.com/Abdelar/postwoman.git
+cd postwoman
+npm i
+# to run a local server
+npm start
+# to build the project for production
+npm run build
+```
 
 ### ⚠️ Disclaimer
 
