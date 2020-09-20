@@ -1,5 +1,5 @@
 import React, { useReducer, useState } from 'react';
-import isObject from 'isobject';
+import { isPlainObject } from 'is-plain-object';
 
 import { Axios } from '../helpers/Axios';
 import { useLocalStorage } from '../helpers/useLocalStorage';
@@ -37,7 +37,7 @@ function App() {
 			setDisableSend(true);
 			try {
 				if (requestState.headers) {
-					if (!isObject(JSON.parse(requestState.headers))) {
+					if (!isPlainObject(JSON.parse(requestState.headers))) {
 						throw new Error("Can't parse headers to a valid JSON object");
 					}
 				}
