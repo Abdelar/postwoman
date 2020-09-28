@@ -15,20 +15,21 @@
 	background-color: var(--light-blue-50);
 }
 .url {
-	flex: 1 1 auto;
+	flex: 6;
 	height: auto;
 	margin: 0 5px;
 	padding: 10px;
-	resize: none;
 }
 
 .methods {
+	flex: 1;
 	width: 90px;
 	display: inline-block;
 	cursor: pointer;
 	padding-left: 10px;
 }
 .send {
+	flex: 1;
 	cursor: pointer;
 	padding: 10px 15px;
 }
