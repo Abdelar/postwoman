@@ -20,7 +20,14 @@ export const Logs = props => {
 		<article className='logs'>
 			<h2>Logs</h2>
 			<div className='logs_body'>
-				{!props.logs.length && <h3>Wow, such empty</h3>}
+				{!props.logs.length && (
+					<h3>
+						Wow, such empty{' '}
+						<span role='img' aria-label='wind imoji'>
+							💨
+						</span>
+					</h3>
+				)}
 				{props.logs.map(log => {
 					return (
 						<HtmlTooltip
