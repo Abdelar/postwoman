@@ -53,10 +53,10 @@ function App() {
 							error: err.response,
 							errorMessage: err.message,
 						});
-						err.response.requestID &&
+						err.response.config.requestID &&
 							updateLocalStorage(logs, err.response, setLogs);
 					} else {
-						err.requestID && updateLocalStorage(logs, err, setLogs);
+						err.config.requestID && updateLocalStorage(logs, err, setLogs);
 						dispatchResponse({ type: 'CLEAR', errorMessage: err.message });
 					}
 					setDisableSend(false);
