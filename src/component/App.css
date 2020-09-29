@@ -45,6 +45,7 @@ h2 {
 	border-bottom: none;
 	border-radius: 5px 5px 0 0;
 	position: relative;
+	height: 20px;
 }
 .input_element label span {
 	position: absolute;
@@ -63,6 +64,11 @@ h2 {
 	padding: 15px;
 	border: 1px solid teal;
 	border-radius: 0 0 5px 5px;
+	height: 20px;
+	transition: all 0.3s ease;
+}
+.input_element textarea.expand {
+	height: 120px;
 }
 .input_element textarea:focus {
 	background-color: var(--light-blue-50);

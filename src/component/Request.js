@@ -51,7 +51,7 @@ export const Request = props => {
 							headers: event.target.value,
 						})
 					}
-					rows={props.requestState.headers ? 10 : 1}
+					className={props.requestState.headers ? 'expand' : ''}
 				/>
 			</div>
 			<div className='input_element'>
@@ -64,7 +64,7 @@ export const Request = props => {
 				<textarea
 					placeholder='Type the body of the request here in JSON format'
 					onChange={event => props.changed({ data: event.target.value })}
-					rows={props.requestState.data ? 10 : 1}
+					className={props.requestState.data ? 'expand' : ''}
 				/>
 			</div>
 			<div className='input_element'>
@@ -79,7 +79,7 @@ export const Request = props => {
 				<textarea
 					onChange={event => props.changed({ options: event.target.value })}
 					placeholder='You can pass a JSON object containing other parameters that you want to add to the request'
-					rows={props.requestState.options ? 10 : 1}
+					className={props.requestState.options ? 'expand' : ''}
 				/>
 			</div>
 		</section>

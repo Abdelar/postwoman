@@ -42,7 +42,7 @@ export const Response = props => {
 							? JSON.stringify(err.data, undefined, 4)
 							: ''
 					}
-					rows={(res && res.data) || (err && err.data) ? 10 : 1}
+					className={(res && res.data) || (err && err.data) ? 'expand' : ''}
 					placeholder=''
 					readOnly
 				/>
@@ -57,7 +57,9 @@ export const Response = props => {
 							? JSON.stringify(err.headers, undefined, 4)
 							: ''
 					}
-					rows={(res && res.headers) || (err && err.headers) ? 10 : 1}
+					className={
+						(res && res.headers) || (err && err.headers) ? 'expand' : ''
+					}
 					placeholder=''
 					readOnly
 				/>
@@ -72,7 +74,7 @@ export const Response = props => {
 							? JSON.stringify(err.config, undefined, 4)
 							: ''
 					}
-					rows={(res && res.config) || (err && err.config) ? 10 : 1}
+					className={(res && res.config) || (err && err.config) ? 'expand' : ''}
 					placeholder=''
 					readOnly
 				/>
