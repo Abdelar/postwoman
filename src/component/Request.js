@@ -48,7 +48,7 @@ export const Request = props => {
 					placeholder='Type the headers of the request here in JSON format'
 					onChange={event =>
 						props.changed({
-							headers: event.target.value,
+							headers: event.target.value.trim(),
 						})
 					}
 					className={props.requestState.headers ? 'expand' : ''}
@@ -63,7 +63,7 @@ export const Request = props => {
 				</label>
 				<textarea
 					placeholder='Type the body of the request here in JSON format'
-					onChange={event => props.changed({ data: event.target.value })}
+					onChange={event => props.changed({ data: event.target.value.trim() })}
 					className={props.requestState.data ? 'expand' : ''}
 				/>
 			</div>
@@ -77,7 +77,9 @@ export const Request = props => {
 					</Tooltip>
 				</label>
 				<textarea
-					onChange={event => props.changed({ options: event.target.value })}
+					onChange={event =>
+						props.changed({ options: event.target.value.trim() })
+					}
 					placeholder='You can pass a JSON object containing other parameters that you want to add to the request'
 					className={props.requestState.options ? 'expand' : ''}
 				/>
