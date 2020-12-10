@@ -37,7 +37,3 @@ npm start
 # to build the project for production
 npm run build
 ```
-
-### Disclaimer
-
-⚠️ This project is not complete and still under development.
